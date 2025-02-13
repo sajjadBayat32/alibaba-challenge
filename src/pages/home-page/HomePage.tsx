@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Hotel } from "../../models";
 import { fetchHotels } from "../../services";
-import { HotelCardList, HotelSearchBox, MapViewer } from "../../components";
+import {
+	HotelCardList,
+	HotelSearchBox,
+	MapViewer,
+	PageLoading,
+} from "../../components";
 
 function HomePage() {
 	const [hotels, setHotels] = useState<Hotel[]>([]);
@@ -28,7 +33,7 @@ function HomePage() {
 			.finally(() => setLoading(false));
 	}, []);
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) return <PageLoading />;
 
 	return (
 		<div className="relative flex flex-col">

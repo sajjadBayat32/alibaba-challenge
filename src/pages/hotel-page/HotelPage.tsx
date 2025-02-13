@@ -27,12 +27,7 @@ function HotelPage() {
 			});
 	}, [id]);
 
-	if (loading)
-		return (
-			<div className="h-[calc(100vh-250px)] flex items-center justify-center">
-				<PageLoading />
-			</div>
-		);
+	if (loading) return <PageLoading />;
 	if (!hotel) return <p>Hotel not found.</p>;
 
 	return (
