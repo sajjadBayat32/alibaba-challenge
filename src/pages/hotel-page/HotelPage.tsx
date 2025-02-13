@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Hotel, UserComment } from "../../models";
 import { fetchHotel, fetchHotelComments } from "../../services";
+import { PageLoading, UserCommentBox } from "../../components";
 
 function HotelPage() {
 	const { id } = useParams();
@@ -21,10 +22,17 @@ function HotelPage() {
 			.catch(() => {
 				alert("Error has occurred");
 			})
-			.finally(() => setLoading(false));
+			.finally(() => {
+				setLoading(false);
+			});
 	}, [id]);
 
-	if (loading) return <p>Loading...</p>;
+	if (loading)
+		return (
+			<div className="h-[calc(100vh-250px)] flex items-center justify-center">
+				<PageLoading />
+			</div>
+		);
 	if (!hotel) return <p>Hotel not found.</p>;
 
 	return (
