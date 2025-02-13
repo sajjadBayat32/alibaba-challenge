@@ -45,9 +45,9 @@ const MapViewer = memo(
 						<Popup>
 							<div className="flex gap-2 items-center justify-between base-font">
 								<h2 className="font-bold">{hotel.name}</h2>
-								<span className="bg-yellow-500 px-2 h-2.5 flex items-center">
-									ستاره {hotel.stars}
-								</span>
+								<div className="bg-yellow-500 px-2 h-5 flex items-center rounded-full">
+									<span className="top-0.5 relative">ستاره {hotel.stars}</span>
+								</div>
 							</div>
 						</Popup>
 					</Marker>

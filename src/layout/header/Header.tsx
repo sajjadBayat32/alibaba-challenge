@@ -1,10 +1,18 @@
+import { Link } from "react-router-dom";
+
 function Header() {
 	return (
-		<div className="rounded-lg bg-white py-4 px-4">
+		<div className="rounded-lg bg-white py-3 px-4">
 			<div className="flex items-center gap-4">
-				{/* Logo Image */}
-				<ul className="flex gap-2">
-					<li className="">خانه</li>
+				<div className="h-8 w-30">
+					<img src={"/logo.svg"} className="object-fill" alt="Logo" />
+				</div>
+				<ul className="flex gap-2 ms-5">
+					<Link className="text-[16px]" to={"/"}>
+						<li className="px-4 transition-all hover:border-color-primary border-b-2 border-transparent">
+							خانه
+						</li>
+					</Link>
 				</ul>
 			</div>
 		</div>

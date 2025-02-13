@@ -10,7 +10,6 @@ function HomePage() {
 	const [selectedHotelId, setSelectedHotelId] = useState<number | null>(null);
 
 	const filteredHotels = useMemo(() => {
-		console.log("filtered hotels");
 		return hotels.filter((hotel) =>
 			`${hotel.name} ${hotel.description}`
 				.toLowerCase()
@@ -32,9 +31,9 @@ function HomePage() {
 	if (loading) return <p>Loading...</p>;
 
 	return (
-		<div className="">
-			<div className="flex justify-center mt-10 mb-10">
-				<div className="w-full max-w-150">
+		<div className="relative flex flex-col">
+			<div className="flex justify-center py-10">
+				<div className="w-full md:max-w-150">
 					<HotelSearchBox
 						callBack={(e) => setSearchTerm(e.target.value)}
 						searchTerm={searchTerm}
@@ -42,11 +41,11 @@ function HomePage() {
 				</div>
 			</div>
 
-			<div className="">
-				<div className="grid grid-cols-[300px_1fr] gap-6 items-start">
-					<div className="flex flex-col gap-4 items-start h-[480px]">
+			<div className="flex-1">
+				<div className="flex max-md:flex-col gap-6 items-start">
+					<div className="flex flex-col gap-4 items-start w-full md:w-100">
 						<h1 className="text-2xl font-semibold pb-2">هتل های تهران</h1>
-						<div className="flex-1 w-full overflow-auto pe-1">
+						<div className="md:h-[calc(100vh-270px)] w-full md:overflow-y-auto pe-1">
 							<HotelCardList
 								hotelList={filteredHotels}
 								selectedHotelId={selectedHotelId}
@@ -55,7 +54,8 @@ function HomePage() {
 							/>
 						</div>
 					</div>
-					<div className="bg-shadow bg-white rounded-lg h-100 p-1">
+
+					<div className="bg-shadow bg-white rounded-lg h-100 max-md:w-full p-1 md:flex-1">
 						<MapContainer
 							hotelList={filteredHotels}
 							selectedHotelId={selectedHotelId}

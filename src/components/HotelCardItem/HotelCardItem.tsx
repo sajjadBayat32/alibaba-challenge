@@ -7,7 +7,7 @@ export const HotelCardItem = memo(
 		return (
 			<div
 				className={`border p-4 rounded-lg  bg-white ${
-					highlighted ? "border-color-primary" : "border-neutral-200"
+					highlighted ? "border-gray-600" : "border-neutral-200"
 				}`}
 			>
 				<h2 className="text-lg font-semibold pb-2">{hotel.name}</h2>
