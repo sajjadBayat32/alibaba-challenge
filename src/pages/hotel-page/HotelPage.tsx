@@ -59,7 +59,7 @@ function HotelPage() {
 				) : (
 					<ul className="mt-4">
 						{comments.map((comment: UserComment) => (
-							<UserCommentBox comment={comment} />
+							<UserCommentBox key={comment.id} comment={comment} />
 						))}
 					</ul>
 				)}
