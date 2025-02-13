@@ -15,6 +15,7 @@ export default defineConfig({
 				short_name: "Alibaba PWA",
 				description: "Find the best hotels in Tehran!",
 				theme_color: "#ffffff",
+				display: "standalone",
 				icons: [
 					{
 						src: "/favicon-16x16.png",
@@ -27,6 +28,9 @@ export default defineConfig({
 						type: "image/png",
 					},
 				],
+			},
+			workbox: {
+				globPatterns: ["**/*.{js,css,html,png,svg,ico,json}"],
 			},
 		}),
 	],

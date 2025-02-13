@@ -1,8 +1,11 @@
 import { Hotel, UserComment } from "../models";
 
+// const BaseUrl = "http://192.168.1.100:3001";
+const BaseUrl = "http://localhost:3001";
+
 export async function fetchHotels() {
 	try {
-		const res = await fetch("http://localhost:3001/hotels");
+		const res = await fetch(`${BaseUrl}/hotels`);
 		if (!res.ok) throw new Error("Hotels not found");
 		const data = (await res.json()) as Hotel[];
 		return data;
@@ -14,7 +17,7 @@ export async function fetchHotels() {
 
 export async function fetchHotel(id: string | undefined) {
 	try {
-		const res = await fetch(`http://localhost:3001/hotels/${id}`);
+		const res = await fetch(`${BaseUrl}/hotels/${id}`);
 		if (!res.ok) throw new Error("Hotel comment not found");
 		const data = (await res.json()) as Hotel;
 		return data;
@@ -26,9 +29,7 @@ export async function fetchHotel(id: string | undefined) {
 
 export async function fetchHotelComments(hotelId: string | undefined) {
 	try {
-		const res = await fetch(
-			`http://localhost:3001/comments?hotelId=${hotelId}`
-		);
+		const res = await fetch(`${BaseUrl}/comments?hotelId=${hotelId}`);
 		if (!res.ok) throw new Error("Hotel not found");
 		const data = (await res.json()) as UserComment[];
 		return data;
