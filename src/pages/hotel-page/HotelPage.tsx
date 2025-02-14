@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Hotel, UserComment } from "../../models";
 import { fetchHotel, fetchHotelComments } from "../../services";
 import { PageLoading, UserCommentBox } from "../../components";
-import NotFoundPage from "../not-found/NotFoundPage";
+import NotFoundPage from "../not-found-page/NotFoundPage";
 
 function HotelPage() {
   const { id } = useParams();

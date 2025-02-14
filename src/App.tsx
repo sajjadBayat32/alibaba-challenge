@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import AppLayout from "./layout/app-layout/AppLayout";
 import { lazy, Suspense } from "react";
 import { PageLoading } from "./components";
-import NotFoundPage from "./pages/not-found/NotFoundPage";
+import NotFoundPage from "./pages/not-found-page/NotFoundPage";
 
 const HomePage = lazy(() => import("./pages/home-page/HomePage"));
 const HotelPage = lazy(() => import("./pages/hotel-page/HotelPage"));
