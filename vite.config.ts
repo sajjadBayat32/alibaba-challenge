@@ -44,31 +44,31 @@ export default defineConfig({
               },
             },
           },
-					{
-						urlPattern: /\.(?:js|css|html|png|svg|ico|json)$/,
-						handler: "StaleWhileRevalidate",
-						options: {
-							cacheName: "static-assets",
-							expiration: {
-								maxEntries: 100,
-								maxAgeSeconds: 7 * 24 * 60 * 60,
-							},
-						},
-					},
+          {
+            urlPattern: /\.(?:js|css|html|png|svg|ico|json)$/,
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "static-assets",
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 7 * 24 * 60 * 60,
+              },
+            },
+          },
         ],
       },
     }),
     tailwindcss(),
   ],
-	ssr: {
-		noExternal: ["react", "react-dom"], // Ensures SSR compatibility
-		external: ["@vitejs/plugin-react"], // Prevents unnecessary SSR bundling
-	},
-	server: {
-		headers: {
-			"Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-		},
-	},
+  ssr: {
+    noExternal: ["react", "react-dom"], // Ensures SSR compatibility
+    external: ["@vitejs/plugin-react"], // Prevents unnecessary SSR bundling
+  },
+  server: {
+    headers: {
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    },
+  },
   test: {
     globals: true,
     environment: "jsdom",
