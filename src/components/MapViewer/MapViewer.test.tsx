@@ -28,12 +28,14 @@ describe("MapViewer Component", () => {
 		{
 			id: 1,
 			name: "Hotel One",
+			description: "",
 			location: { lat: 35.6895, long: 51.389 },
 			stars: 4,
 		},
 		{
 			id: 2,
 			name: "Hotel Two",
+			description: "",
 			location: { lat: 36.5, long: 52.5 },
 			stars: 5,
 		},
@@ -47,7 +49,7 @@ describe("MapViewer Component", () => {
 				onMarkerClick={() => {}}
 			/>
 		);
-		expect(screen.getByTestId("map-container")).toBeInTheDocument();
+		expect(screen.getByTestId("map-container")).toBeTruthy();
 	});
 
 	it("renders the correct number of markers", () => {

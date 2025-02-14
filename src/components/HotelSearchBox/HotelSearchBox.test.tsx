@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, test } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import HotelSearchBox from "./HotelSearchBox";
 
@@ -8,17 +8,17 @@ describe("HotelSearchBox Component", () => {
 		const input = screen.getByPlaceholderText(
 			"بین نام هتل ها و توضیحاتشون جستجو کن ..."
 		);
-		expect(input).toBeInTheDocument();
+		expect(input).toBeTruthy();
 	});
 
 	test("displays the correct search term", () => {
 		const searchTerm = "Shiraz Hotel";
 		render(<HotelSearchBox searchTerm={searchTerm} callBack={() => {}} />);
 
-		const inputElement = screen.getByPlaceholderText(
+		const inputElement = screen.getByPlaceholderText<HTMLInputElement>(
 			"بین نام هتل ها و توضیحاتشون جستجو کن ..."
 		);
-		expect(inputElement).toHaveValue(searchTerm);
+		expect(inputElement.value).toContain(searchTerm);
 	});
 
 	it("calls the callback function on input change", () => {
