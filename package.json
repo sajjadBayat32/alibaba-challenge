@@ -7,10 +7,12 @@
 		"dev": "vite --port 4200 --host 0.0.0.0",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"json-server": "json-server --watch src/db.json --port 3001 --host 0.0.0.0"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.0.6",
+		"express": "^4.21.2",
 		"json-server": "^1.0.0-beta.3",
 		"leaflet": "^1.9.4",
 		"react": "^19.0.0",
