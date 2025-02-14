@@ -7,7 +7,7 @@
     "dev": "vite --port 4200 --host 0.0.0.0",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "format": "prettier \"./**/*.{tsx,js,json,css,html}\" --write",
+    "format": "prettier \"./**/*.{tsx,js,ts,json,css,html}\" --write",
     "preview": "vite preview",
     "test": "vitest",
     "json-server": "json-server --watch src/db.json --port 3001 --host 0.0.0.0"
