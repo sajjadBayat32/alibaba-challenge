@@ -19,7 +19,7 @@ const highlightedIcon = icon({
 
 const MapViewer = memo(
   ({ hotels, selectedHotelId, onMarkerClick }: ComponentProps) => {
-    const latLngList: LatLngExpression[] = hotels.map((hotel) => [
+    const latLngList: LatLngExpression[] = hotels.map(hotel => [
       hotel.location.lat,
       hotel.location.long,
     ]);
@@ -27,7 +27,7 @@ const MapViewer = memo(
       <MapContainer className="h-full w-full rounded-lg">
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MapController latLngList={latLngList} />
-        {hotels.map((hotel) => (
+        {hotels.map(hotel => (
           <Marker
             key={hotel.id}
             alt={hotel.name}
@@ -45,7 +45,7 @@ const MapViewer = memo(
         ))}
       </MapContainer>
     );
-  }
+  },
 );
 
 function MapController({ latLngList }: { latLngList: LatLngExpression[] }) {
