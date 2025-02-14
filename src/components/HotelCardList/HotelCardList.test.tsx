@@ -29,7 +29,7 @@ test("renders 'no hotels found' message when list is empty", () => {
         selectedHotelId={null}
         onSelectHotel={() => {}}
       />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   expect(screen.getByText("هتلی یافت نشد!")).toBeTruthy();
@@ -46,7 +46,7 @@ test("calls onSelectHotel when a hotel is clicked", () => {
         selectedHotelId={null}
         onSelectHotel={mockOnSelectHotel}
       />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   const hotelItem = screen.getByText("Hotel Tehran");

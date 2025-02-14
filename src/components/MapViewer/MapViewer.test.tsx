@@ -47,7 +47,7 @@ describe("MapViewer Component", () => {
         hotels={hotels}
         selectedHotelId={null}
         onMarkerClick={() => {}}
-      />
+      />,
     );
     expect(screen.getByTestId("map-container")).toBeTruthy();
   });
@@ -58,7 +58,7 @@ describe("MapViewer Component", () => {
         hotels={hotels}
         selectedHotelId={null}
         onMarkerClick={() => {}}
-      />
+      />,
     );
     expect(screen.getAllByTestId("marker").length).toBe(2);
   });
@@ -70,7 +70,7 @@ describe("MapViewer Component", () => {
         hotels={hotels}
         selectedHotelId={null}
         onMarkerClick={mockOnMarkerClick}
-      />
+      />,
     );
     const markers = screen.getAllByTestId("marker");
     act(() => {

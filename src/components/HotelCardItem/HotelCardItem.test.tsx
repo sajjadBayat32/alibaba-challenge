@@ -15,7 +15,7 @@ test("renders hotel name and it's info", () => {
   render(
     <MemoryRouter>
       <HotelCardItem hotel={mockHotel} highlighted={false} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   expect(screen.getByText("Hotel Tehran")).toBeTruthy();
@@ -28,7 +28,7 @@ test("renders highlighted card", () => {
   render(
     <MemoryRouter>
       <HotelCardItem hotel={mockHotel} highlighted={true} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
   const container = screen.getByText("Hotel Tehran").closest("div");
   expect(container?.classList.toString()).toContain("border-gray-600");

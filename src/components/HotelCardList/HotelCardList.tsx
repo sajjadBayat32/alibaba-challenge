@@ -21,12 +21,12 @@ function HotelCardList({
 
   return hotelList.length > 0 ? (
     <ul className="w-full pb-4">
-      {hotelList.map((hotel) => (
+      {hotelList.map(hotel => (
         <li
           className="py-1 first:pt-0 last:pb-0 cursor-pointer"
           key={hotel.id}
           onClick={() => onSelectHotel(hotel.id)}
-          ref={(el) => {
+          ref={el => {
             if (el) hotelRefs.current[hotel.id] = el;
           }}
         >
