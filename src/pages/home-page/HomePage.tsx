@@ -1,12 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, useCallback, useEffect, useMemo, useState } from "react";
 import { Hotel } from "../../models";
 import { fetchHotels } from "../../services";
-import {
-  HotelCardList,
-  HotelSearchBox,
-  MapViewer,
-  PageLoading,
-} from "../../components";
+import { HotelCardList, HotelSearchBox, PageLoading } from "../../components";
+
+const MapViewer = lazy(() => import("../../components/MapViewer/MapViewer"));
 
 function HomePage() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
