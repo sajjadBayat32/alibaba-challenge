@@ -1,13 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [
 		react(),
-		tailwindcss(),
 		VitePWA({
 			registerType: "autoUpdate",
 			manifest: {
@@ -18,12 +17,12 @@ export default defineConfig({
 				display: "standalone",
 				icons: [
 					{
-						src: "/favicon-16x16.png",
+						src: "icons/favicon-16x16.png",
 						sizes: "16x16",
 						type: "image/png",
 					},
 					{
-						src: "/favicon-32x32.png",
+						src: "icons/favicon-32x32.png",
 						sizes: "32x32",
 						type: "image/png",
 					},
@@ -31,7 +30,24 @@ export default defineConfig({
 			},
 			workbox: {
 				globPatterns: ["**/*.{js,css,html,png,svg,ico,json}"],
+				runtimeCaching: [
+					{
+						urlPattern: /^http:\/\/localhost:3001\/hotels/,
+						handler: "NetworkFirst",
+						options: {
+							cacheName: "api-cache",
+							expiration: {
+								maxEntries: 50,
+								maxAgeSeconds: 24 * 60 * 60, // Cache for 1 day
+							},
+							cacheableResponse: {
+								statuses: [200],
+							},
+						},
+					},
+				],
 			},
 		}),
+		tailwindcss(),
 	],
 });
