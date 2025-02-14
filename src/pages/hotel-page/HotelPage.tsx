@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Hotel, UserComment } from "../../models";
 import { fetchHotel, fetchHotelComments } from "../../services";
-import { PageLoading, UserCommentBox } from "../../components";
+import { MapViewer, PageLoading, UserCommentBox } from "../../components";
 import NotFoundPage from "../not-found-page/NotFoundPage";
 
 function HotelPage() {
@@ -59,6 +59,13 @@ function HotelPage() {
             ))}
           </ul>
         )}
+      </div>
+      <div className="bg-shadow bg-white rounded-lg h-100 max-md:w-full p-1 md:flex-1  mt-6">
+        <MapViewer
+          selectedHotelId={null}
+          hotels={[hotel]}
+          onMarkerClick={() => {}}
+        />
       </div>
     </div>
   );
