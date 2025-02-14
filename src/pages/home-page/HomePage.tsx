@@ -15,6 +15,7 @@ function HomePage() {
   const [selectedHotelId, setSelectedHotelId] = useState<number | null>(null);
 
   const filteredHotels = useMemo(() => {
+    setSelectedHotelId(null);
     return hotels.filter((hotel) =>
       `${hotel.name} ${hotel.description}`
         .toLowerCase()

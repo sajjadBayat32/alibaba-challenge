@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Hotel } from "../../models";
 import { HotelCardItem } from "../HotelCardItem/HotelCardItem";
 
@@ -7,13 +8,27 @@ function HotelCardList({
   selectedHotelId,
   onSelectHotel,
 }: ComponentProps) {
+  const hotelRefs = useRef<{ [key: string]: HTMLLIElement }>({});
+
+  useEffect(() => {
+    if (selectedHotelId && hotelRefs.current[selectedHotelId]) {
+      hotelRefs.current[selectedHotelId].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [selectedHotelId]);
+
   return hotelList.length > 0 ? (
-    <ul className="w-full">
+    <ul className="w-full pb-4">
       {hotelList.map((hotel) => (
         <li
           className="py-1 first:pt-0 last:pb-0 cursor-pointer"
           key={hotel.id}
           onClick={() => onSelectHotel(hotel.id)}
+          ref={(el) => {
+            if (el) hotelRefs.current[hotel.id] = el;
+          }}
         >
           <HotelCardItem
             hotel={hotel}
