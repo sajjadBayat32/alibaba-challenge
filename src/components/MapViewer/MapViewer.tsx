@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { LatLngBounds, LatLngExpression, icon } from "leaflet";
 import { Hotel } from "../../models";
 import { memo, useEffect } from "react";
+import Rate from "../Rate/Rate";
 
 const hotelIcon = icon({
   iconUrl: "/icons/hotel-marker.svg",
@@ -37,9 +38,7 @@ const MapViewer = memo(
             <Popup>
               <div className="flex gap-2 items-center justify-between base-font">
                 <h2 className="font-bold">{hotel.name}</h2>
-                <div className="bg-yellow-500 px-2 h-5 flex items-center rounded-full">
-                  <span className="top-0.5 relative">ستاره {hotel.stars}</span>
-                </div>
+                <Rate rate={hotel.stars} />
               </div>
             </Popup>
           </Marker>
