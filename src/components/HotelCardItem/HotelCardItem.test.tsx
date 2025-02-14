@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { HotelCardItem } from "./HotelCardItem";
+import { expect, test } from "vitest";
 
 const mockHotel = {
 	id: 1,
@@ -17,8 +18,8 @@ test("renders hotel name and stars", () => {
 		</MemoryRouter>
 	);
 
-	expect(screen.getByText("Hotel Tehran")).toBeInTheDocument();
-	expect(screen.getByText("5 ستاره")).toBeInTheDocument();
+	expect(screen.getByText("Hotel Tehran")).toBeTruthy();
+	expect(screen.getByText("5 ستاره")).toBeTruthy();
 });
 
 test("renders description and 'مشاهده بیشتر' link", () => {
@@ -28,6 +29,6 @@ test("renders description and 'مشاهده بیشتر' link", () => {
 		</MemoryRouter>
 	);
 
-	expect(screen.getByText("A luxurious hotel in Tehran.")).toBeInTheDocument();
-	expect(screen.getByText("مشاهده بیشتر")).toBeInTheDocument();
+	expect(screen.getByText("A luxurious hotel in Tehran.")).toBeTruthy();
+	expect(screen.getByText("مشاهده بیشتر")).toBeTruthy();
 });

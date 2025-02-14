@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import HotelCardList from "./HotelCardList";
+import { expect, test, vi } from "vitest";
 
 const mockHotels = [
 	{
@@ -31,8 +32,8 @@ test("renders hotel list when hotels are available", () => {
 		</MemoryRouter>
 	);
 
-	expect(screen.getByText("Hotel Tehran")).toBeInTheDocument();
-	expect(screen.getByText("Hotel Shiraz")).toBeInTheDocument();
+	expect(screen.getByText("Hotel Tehran")).toBeTruthy();
+	expect(screen.getByText("Hotel Shiraz")).toBeTruthy();
 });
 
 test("renders 'no hotels found' message when list is empty", () => {
@@ -47,7 +48,7 @@ test("renders 'no hotels found' message when list is empty", () => {
 		</MemoryRouter>
 	);
 
-	expect(screen.getByText("هتلی یافت نشد!")).toBeInTheDocument();
+	expect(screen.getByText("هتلی یافت نشد!")).toBeTruthy();
 });
 
 test("calls onSelectHotel when a hotel is clicked", () => {

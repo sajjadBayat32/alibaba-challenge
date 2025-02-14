@@ -5,12 +5,12 @@ import PageLoading from "./PageLoading";
 describe("PageLoading Component", () => {
 	it("renders the loading message", () => {
 		render(<PageLoading />);
-		expect(screen.getByText("در حال بارگذاری...")).toBeInTheDocument();
+		expect(screen.getByText("در حال بارگذاری...")).toBeTruthy();
 	});
 
 	it("has the correct structure and styles", () => {
 		render(<PageLoading />);
 		const container = screen.getByText("در حال بارگذاری...").closest("div");
-		expect(container).toHaveClass("font-bold");
+		expect(container?.classList).toContain("font-bold");
 	});
 });
