@@ -13,21 +13,21 @@ function HomePage() {
 
   const filteredHotels = useMemo(() => {
     setSelectedHotelId(null);
-    return hotels.filter((hotel) =>
+    return hotels.filter(hotel =>
       `${hotel.name} ${hotel.description}`
         .toLowerCase()
-        .includes(searchTerm.trim().toLowerCase())
+        .includes(searchTerm.trim().toLowerCase()),
     );
   }, [hotels, searchTerm]);
 
   const handleSelectHotel = useCallback(
     (id: number) => setSelectedHotelId(id),
-    []
+    [],
   );
 
   useEffect(() => {
     fetchHotels()
-      .then((body) => setHotels(body))
+      .then(body => setHotels(body))
       .finally(() => setLoading(false));
   }, []);
 
@@ -38,7 +38,7 @@ function HomePage() {
       <div className="flex justify-center py-10">
         <div className="w-full md:max-w-150">
           <HotelSearchBox
-            callBack={(e) => setSearchTerm(e.target.value)}
+            callBack={e => setSearchTerm(e.target.value)}
             searchTerm={searchTerm}
           />
         </div>
