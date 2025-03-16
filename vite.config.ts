@@ -17,13 +17,8 @@ export default defineConfig({
         display: "standalone",
         icons: [
           {
-            src: "icons/favicon-16x16.png",
-            sizes: "16x16",
-            type: "image/png",
-          },
-          {
-            src: "icons/favicon-32x32.png",
-            sizes: "32x32",
+            src: "icons/favicon-144x144.png",
+            sizes: "144x144",
             type: "image/png",
           },
         ],

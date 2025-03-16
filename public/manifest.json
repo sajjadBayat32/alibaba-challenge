@@ -3,16 +3,12 @@
   "short_name": "Alibaba PWA",
   "description": "Find the best hotels in Tehran!",
   "theme_color": "#ffffff",
+  "start_url": "/",
   "display": "standalone",
   "icons": [
     {
-      "src": "icons/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/favicon-32x32.png",
-      "sizes": "32x32",
+      "src": "icons/favicon-144x144.png",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ]
